@@ -4,14 +4,27 @@
 using namespace std;
 
 ifstream fin("in.txt");
-ofstream fout("out.txt");
+ofstream fout("ou.txt");
 
-int main() {
-    double a[1000], n, s = 0;
-    fin >> n;
+void citire(int a[], int &n)
+{
+fin >> n;
     for (int i = 0; i < n; i++) {
         fin >> a[i];
-        s += a[i];
     }
-    fout << s / n;
+}
+
+int parcurgere(int a[], int n)
+{
+    int s = 0;
+    for (int i = 0; i < n; i++) {
+         s += a[i];
+    }
+    return s;
+}
+
+int main() {
+    int  a[1000], n;
+    citire(a, n);
+    fout << parcurgere(a,n) / n;
 }
